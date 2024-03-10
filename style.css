@@ -1,24 +1,8 @@
-#counterLabel {
-    display: block;
-    text-align: center;
-    font-size: 5em;
-    font-family: 'Franklin Gothic Medium';
+body {
+    font-size: 1em;
+    font-family: Georgia;
 }
 
-#btnContainer {
-    text-align: center;
-}
-
-.buttons {
-    padding: 10px 20px;
-    font-size: 1.5em;
-    color: white;
-    background-color: rgb(133, 201, 247);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.buttons:hover {
-    background-color: rgb(42, 123, 177);
+#submitBtn {
+    font-size: 1em;
 }
