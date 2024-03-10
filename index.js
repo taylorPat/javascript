@@ -1,19 +1,37 @@
-const subscribe = document.getElementById("myCheckbox")
-const masterCard = document.getElementById("masterCardBtn")
-const paypal = document.getElementById("paypalBtn")
-const submit = document.getElementById("submitBtn")
-const subPara = document.getElementById("subPara")
-const paymentPara = document.getElementById("paymentPara")
+let MIN = 20
+let MAX = 100
 
-submit.onclick = function() {
-    // ternary operator
-    subPara.textContent = subscribe.checked ? "you are subscribed" : "you are not subscribed yet"
-    if (masterCard.checked) {
-        paymentPara.textContent = "you are using mastercard"
+let random = Math.floor(Math.random() * (MAX - MIN)) + MIN
+//console.log(random)
+
+let attempts = 0
+let guess;
+let running = true;
+
+while (running) {
+    guess = Number(window.prompt(`What is the random number between ${MIN} and ${MAX}`));
+    // console.log(guess)
+    if(isNaN(guess)){
+        window.alert("Please insert a valid number")
     }
-    else if (paypal.checked) {
-        paymentPara.textContent = "you are using paypal"
+    else if (guess < MIN || guess > MAX) {
+        window.alert("Number is out of range")
     }
+    else {
+        if(guess < random) {
+            MIN = guess
+            console.log("Too small")
+        }
+        else if(guess > random) {
+            MAX = guess
+            console.log("Too big")
+        }
+        else {
+            running = false
+        }
+    }
+    attempts++
+
 }
-
+window.alert(`You had ${attempts} attempts`)
 
