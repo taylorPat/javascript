@@ -1,22 +1,14 @@
-const counterLabel = document.getElementById("counterLabel")
-const increaseBtn = document.getElementById("increase")
-const decreaseBtn = document.getElementById("decrease")
-const resetBtn = document.getElementById("reset")
-let counter = 0
+// Math built in object
 
-increaseBtn.onclick = function() {
-    counter++;
-    counterLabel.textContent = counter;
+const MIN = 50
+const MAX = 120
+
+x = Math.floor(Math.random() * (MAX - MIN)) + MIN;
+
+if (x > 100) {
+    console.log("The number is greater than 100")
 }
-
-decreaseBtn.onclick = function() {
-    counter--;
-    counterLabel.textContent = counter;
+else {
+    console.log("Less than 100")
 }
-
-resetBtn.onclick = function() {
-    counter = 0;
-    counterLabel.textContent = counter;
-}
-
-console.log(counter, typeof counter)
+console.log(x)
