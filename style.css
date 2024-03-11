@@ -1,8 +1,36 @@
 body {
-    font-size: 1em;
-    font-family: Georgia;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
 }
 
-#submitBtn {
-    font-size: 1em;
+#cont {
+    background-color: hsl(208, 75%, 69%);
+    text-align: center;
+    max-width: 300px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(29, 38, 151, 0.55);
+}
+
+#tempInput {
+    width: 50%;
+    text-align: center;
+    font-size: 2em;
+    border: 2px solid;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: blueviolet;
 }

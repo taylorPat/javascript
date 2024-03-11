@@ -1,37 +1,34 @@
-let MIN = 20
-let MAX = 100
+const tempInput = document.getElementById("tempInput")
+const celToFahrBtn = document.getElementById("celToFahrBtn")
+const fahrToCelBtn = document.getElementById("fahrToCelBtn")
+const submitBtn = document.getElementById("submitBtn")
+const result = document.getElementById("result")
 
-let random = Math.floor(Math.random() * (MAX - MIN)) + MIN
-//console.log(random)
-
-let attempts = 0
-let guess;
-let running = true;
-
-while (running) {
-    guess = Number(window.prompt(`What is the random number between ${MIN} and ${MAX}`));
-    // console.log(guess)
-    if(isNaN(guess)){
-        window.alert("Please insert a valid number")
+function convert(temp) {
+    if (celToFahrBtn.checked) {
+        return temp * 9 / 5 + 32
     }
-    else if (guess < MIN || guess > MAX) {
-        window.alert("Number is out of range")
+    else if (fahrToCelBtn.checked) {
+        return (temp - 32) * 5 / 9
     }
     else {
-        if(guess < random) {
-            MIN = guess
-            console.log("Too small")
-        }
-        else if(guess > random) {
-            MAX = guess
-            console.log("Too big")
-        }
-        else {
-            running = false
-        }
+        return "Select a unit"
     }
-    attempts++
-
 }
-window.alert(`You had ${attempts} attempts`)
 
+function getUnit() {
+    if (celToFahrBtn.checked) {
+        return "°F"
+    }
+    else if (fahrToCelBtn.checked) {
+        return "°C"
+    }
+    else {
+        return "Select a unit"
+    }
+}
+
+submitBtn.onclick = function() {
+    let answer = convert(temp=Number(tempInput.value))
+    result.textContent = `${answer}${getUnit()}`
+}
