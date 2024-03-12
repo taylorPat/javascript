@@ -8,14 +8,12 @@
 </head>
 <body>
     <div id="cont">
-        <h1>Temperatur converter</h1>
-        <input id="tempInput"/><br>
-        <input type="radio" id="celToFahrBtn" name="degrees">
-        <label for="celToFahrBtn">Celsius -> Fahrenheit</label><br>
-        <input type="radio" id="fahrToCelBtn" name="degrees">
-        <label for="fahrToCelBtn">Fahrenheit -> Celsius</label><br>
-        <button id="submitBtn">Submit</button><br>
-        <p id="result"></p>
+        <h1>Dice Roller</h1>
+        <input type="number" value="1" min="1" id="input">
+        <button onclick="diceRoller()">submit</button>
+        <p id="results"></p>
+        <p id="dices"></p>
+
     </div>
 
     <script src="index.js"></script>

@@ -1,34 +1,20 @@
-const tempInput = document.getElementById("tempInput")
-const celToFahrBtn = document.getElementById("celToFahrBtn")
-const fahrToCelBtn = document.getElementById("fahrToCelBtn")
-const submitBtn = document.getElementById("submitBtn")
-const result = document.getElementById("result")
+const input = document.getElementById("input")
+const results = document.getElementById("results")
+const dices = document.getElementById("dices")
 
-function convert(temp) {
-    if (celToFahrBtn.checked) {
-        return temp * 9 / 5 + 32
-    }
-    else if (fahrToCelBtn.checked) {
-        return (temp - 32) * 5 / 9
-    }
-    else {
-        return "Select a unit"
-    }
-}
+let values = []
+let images = []
 
-function getUnit() {
-    if (celToFahrBtn.checked) {
-        return "°F"
+function diceRoller() {
+    let numDices = Number(input.value)
+    for (i=0; i < numDices; i++) {
+        let numRandom = Math.floor(Math.random() * 6) + 1
+        values.push(numRandom);
+        images.push(`<img src="dices/Dice-${numRandom}.png" width=50 height=50 alt="Dice ${numRandom}">`);
     }
-    else if (fahrToCelBtn.checked) {
-        return "°C"
-    }
-    else {
-        return "Select a unit"
-    }
-}
-
-submitBtn.onclick = function() {
-    let answer = convert(temp=Number(tempInput.value))
-    result.textContent = `${answer}${getUnit()}`
+    console.log(images)
+    results.textContent = `dices: ${values.join(', ')}`
+    dices.innerHTML = images.join(' ');
+    values = []
+    images = []
 }

@@ -29,8 +29,18 @@ label {
 
 button {
     cursor: pointer;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: white;
+    border-color: rgb(223, 37, 37);
+    border-width: 5px;
 }
 
 button:hover {
     background-color: blueviolet;
+}
+
+#result {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
 }
