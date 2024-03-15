@@ -1,38 +1,26 @@
-const LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz"
-const UPPERCASE_LETTERS = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
-const NUMBERS = "1234567890"
-const SYMBOLS = "!§$%&/()="
-
-function generatePassword(length, 
-                        includeLowerCase, 
-                        includeUpperCase, 
-                        includeNumbers, 
-                        includeSymbols) {
-    let pw = "";
-    let accessableRange = ""
-    accessableRange += includeLowerCase ? LOWERCASE_LETTERS : "";
-    accessableRange += includeUpperCase ? UPPERCASE_LETTERS : "";
-    accessableRange += includeNumbers ? NUMBERS : "";
-    accessableRange += includeSymbols ? SYMBOLS : "";
-    for (i = 0; i<length; i++) {
-        randomIndex = Math.floor(Math.random() * accessableRange.length);
-        let letter = accessableRange.charAt(randomIndex)
-        pw = pw.concat(letter)
-        // pkw += letter
-    }
-    return pw
+function addForEach(element, index, array) {
+    array[index] = element + 5;
 }
 
-length=10
-includeLowerCase=true 
-includeUpperCase=true 
-includeNumbers=true 
-includeSymbols=true
+function addMap(element) {
+    return element + 5;
+}
 
-password = generatePassword(length, 
-    includeLowerCase, 
-    includeUpperCase, 
-    includeNumbers, 
-    includeSymbols)
+function filterIsEven(element) {
+    return element % 2 === 0;
+}
 
-console.log(`The generated password is ${password} with length ${password.length}`)
+// forEach
+let numbersForEach = [1,2,3]
+let numForEach = numbersForEach.map(addMap)
+console.log(numForEach)
+
+// map
+let numbersNap = [1,2,3]
+let numMap = numbersNap.map(addMap)
+console.log(numMap)
+
+// filter
+let numbersFilter = [1,2,3,4,5]
+let numFilter = numbersFilter.filter(filterIsEven)
+console.log(numFilter)
