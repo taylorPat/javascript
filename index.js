@@ -1,20 +1,38 @@
-const input = document.getElementById("input")
-const results = document.getElementById("results")
-const dices = document.getElementById("dices")
+const LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz"
+const UPPERCASE_LETTERS = "ABCDEFGHIKLMNOPQRSTUVWXYZ"
+const NUMBERS = "1234567890"
+const SYMBOLS = "!§$%&/()="
 
-let values = []
-let images = []
-
-function diceRoller() {
-    let numDices = Number(input.value)
-    for (i=0; i < numDices; i++) {
-        let numRandom = Math.floor(Math.random() * 6) + 1
-        values.push(numRandom);
-        images.push(`<img src="dices/Dice-${numRandom}.png" width=50 height=50 alt="Dice ${numRandom}">`);
+function generatePassword(length, 
+                        includeLowerCase, 
+                        includeUpperCase, 
+                        includeNumbers, 
+                        includeSymbols) {
+    let pw = "";
+    let accessableRange = ""
+    accessableRange += includeLowerCase ? LOWERCASE_LETTERS : "";
+    accessableRange += includeUpperCase ? UPPERCASE_LETTERS : "";
+    accessableRange += includeNumbers ? NUMBERS : "";
+    accessableRange += includeSymbols ? SYMBOLS : "";
+    for (i = 0; i<length; i++) {
+        randomIndex = Math.floor(Math.random() * accessableRange.length);
+        let letter = accessableRange.charAt(randomIndex)
+        pw = pw.concat(letter)
+        // pkw += letter
     }
-    console.log(images)
-    results.textContent = `dices: ${values.join(', ')}`
-    dices.innerHTML = images.join(' ');
-    values = []
-    images = []
+    return pw
 }
+
+length=10
+includeLowerCase=true 
+includeUpperCase=true 
+includeNumbers=true 
+includeSymbols=true
+
+password = generatePassword(length, 
+    includeLowerCase, 
+    includeUpperCase, 
+    includeNumbers, 
+    includeSymbols)
+
+console.log(`The generated password is ${password} with length ${password.length}`)
