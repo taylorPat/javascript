@@ -1,51 +1,42 @@
-function addForEach(element, index, array) {
-    array[index] = element + 5;
+// constructor function
+// function Person(firstName, lastName, age, isEmployed) {
+//     this.firstName = firstName,
+//     this.lastName = lastName,
+//     this.age = age,
+//     this.isEmployed = isEmployed,
+//     this.introduce = function() {
+//         console.log(`My name is ${this.firstName} ${this.lastName}. I am ${this.age} years old and I am ${this.isEmployed ? "" : "not"} employed!`)
+//     }
+// }
+
+class Person{
+    static count = 0;
+
+    constructor(firstName, lastName, age, isEmployed) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.isEmployed = isEmployed;
+        Person.count++;
+    }
+
+    static logCount() {
+        console.log(`There are ${Person.count} Persons online!`)
+    }
+
+    introduce() {
+        console.log(`My name is ${this.firstName} ${this.lastName}.`)
+        console.log(`I am ${this.age} years old and I am ${this.isEmployed ? "" : "not"} employed!`)
+    }
 }
 
-function addMap(element) {
-    return element + 5;
-}
+let person1 = new Person("Patrick", "Taylor", 30, true)
+let person2 = new Person("Tim", "Bitamo", 23, false)
 
-function filterIsEven(element) {
-    return element % 2 === 0;
-}
+let persons = [person1, person2]
 
-function reduceMax(previous, next) {
-    return Math.max(previous, next)
-}
+persons.forEach(element => {
+    element.introduce()
+});
 
-// forEach
-let numbersForEach = [1,2,3]
-let numForEach = numbersForEach.map(addMap)
-console.log(numForEach)
-
-// map
-let numbersNap = [1,2,3]
-let numMap = numbersNap.map(addMap)
-console.log(numMap)
-
-// filter
-let numbersFilter = [1,2,3,4,5]
-let numFilter = numbersFilter.filter(filterIsEven)
-console.log(numFilter)
-
-// reduce
-let numbersReduce = [1,2,3,4,10,6,7]
-console.log(Math.max(...numbersReduce))
-let maxNumber = numbersReduce.reduce(reduceMax)
-console.log(maxNumber)
-
-// function expression
-setTimeout(function() {
-    console.log("Hello, World!")
-}, 3000)
-let numsReduced = numbersReduce.reduce(function (previous, next) {
-    return Math.max(previous, next)
-})
-console.log(`Reduced numbers with function expressions: ${numsReduced}`)
-
-// arrow functions
-let numsReducedArrow = numbersReduce.reduce((previous, next) => {
-    return Math.max(previous, next)
-})
-console.log(`Reduced numbers with arrow functions: ${numsReducedArrow}`)
+Person.logCount()
