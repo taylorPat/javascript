@@ -1,42 +1,35 @@
-// constructor function
-// function Person(firstName, lastName, age, isEmployed) {
-//     this.firstName = firstName,
-//     this.lastName = lastName,
-//     this.age = age,
-//     this.isEmployed = isEmployed,
-//     this.introduce = function() {
-//         console.log(`My name is ${this.firstName} ${this.lastName}. I am ${this.age} years old and I am ${this.isEmployed ? "" : "not"} employed!`)
-//     }
-// }
-
-class Person{
-    static count = 0;
-
-    constructor(firstName, lastName, age, isEmployed) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.isEmployed = isEmployed;
-        Person.count++;
+class Animal {
+    constructor(name, superPower) {
+        this.name = name
+        this.superPower = superPower
     }
-
-    static logCount() {
-        console.log(`There are ${Person.count} Persons online!`)
+    eat() {
+        console.log(`The ${this.name} is eating`)
     }
-
-    introduce() {
-        console.log(`My name is ${this.firstName} ${this.lastName}.`)
-        console.log(`I am ${this.age} years old and I am ${this.isEmployed ? "" : "not"} employed!`)
+    convertSuperPower(callback) {
+        console.log(`Convert ${this.superPower} to Potatos with ${this.logSpeed()}! ${callback()}`)
+    }
+    logSpeed() {
+        return `${this.speed} miles per hour`
     }
 }
 
-let person1 = new Person("Patrick", "Taylor", 30, true)
-let person2 = new Person("Tim", "Bitamo", 23, false)
+class Frog extends Animal {
+    constructor(name, superPower, jumpingSpeed) {
+        super(name, superPower)
+        this.speed = jumpingSpeed
+    }
 
-let persons = [person1, person2]
+    jump() {
+        return `The frog is jumping!`
+    }
 
-persons.forEach(element => {
-    element.introduce()
-});
+    convertSuperPower() {
+        super.convertSuperPower(this.jump)
+    }
+}
 
-Person.logCount()
+const frog = new Frog("Frog", "Bananas", 25);
+frog.eat()
+frog.jump()
+frog.convertSuperPower()
