@@ -1,21 +1,23 @@
-// Nested objects
+const fruits = [
+    {name: "apple", calories: 10},
+    {name: "banana", calories: 33},
+    {name: "birne", calories: 3},
+]
 
-class Person {
-    constructor(name, age, ...adresse) {
-        this.name = name;
-        this.age = age;
-        console.log(typeof adresse, adresse)
-        this.adresse = new Adresse(...adresse)
-        console.log(typeof this.adresse, this.adresse)
-    }
+fruits.forEach(fruit => console.log(fruit.name))
+
+const fruitNames = fruits.map(fruit => fruit.name)
+fruitNames.forEach(name => console.log(name))
+
+const newFruits = fruits.filter(fruit => fruit.calories < 20)
+newFruits.forEach(fruit => console.log(fruit.name))
+
+console.log("-----------")
+fruits.forEach(fruit => console.log(fruit.name))
+
+const lowestCalFruit = fruits.reduce( (maxi, fruit) => {
+    return fruit.calories < maxi.calories ? fruit : maxi;
 }
+)
 
-class Adresse {
-    constructor(street, houseNumber, city) {
-        this.street = street;
-        this.houseNumber = houseNumber;
-        this.city = city;
-    }
-}
-
-const person = new Person("Patrick", 22, "Baker Street", 29, "Ratisbon")
+console.log(lowestCalFruit)
