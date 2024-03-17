@@ -1,35 +1,42 @@
-class Animal {
-    constructor(name, superPower) {
-        this.name = name
-        this.superPower = superPower
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
     }
-    eat() {
-        console.log(`The ${this.name} is eating`)
+
+    set width(newWidth) {
+        if (newWidth > 0) {
+            this._width = newWidth;
+        }
+        else {
+            console.error("Width is not valid!")
+        }
     }
-    convertSuperPower(callback) {
-        console.log(`Convert ${this.superPower} to Potatos with ${this.logSpeed()}! ${callback()}`)
+    
+    set height(newHeight) {
+        if (typeof newHeight === "number" && newHeight > 0) {
+            this._height = newHeight;
+        }
+        else {
+            console.error("Height is not valid!")
+        }
     }
-    logSpeed() {
-        return `${this.speed} miles per hour`
+
+    get width() {
+        return this._width;
+    }
+
+    get height() {
+        return this._height;
+    }
+
+    get area() {
+        return this._height * this._width
     }
 }
 
-class Frog extends Animal {
-    constructor(name, superPower, jumpingSpeed) {
-        super(name, superPower)
-        this.speed = jumpingSpeed
-    }
+const rectangle = new Rectangle(100, 200);
 
-    jump() {
-        return `The frog is jumping!`
-    }
-
-    convertSuperPower() {
-        super.convertSuperPower(this.jump)
-    }
-}
-
-const frog = new Frog("Frog", "Bananas", 25);
-frog.eat()
-frog.jump()
-frog.convertSuperPower()
+console.log(rectangle.width)
+console.log(rectangle.height)
+console.log(rectangle.area)
