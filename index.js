@@ -1,23 +1,14 @@
+// sort() = sorting elements of arrays in place in lexicographic order
 const fruits = [
     {name: "apple", calories: 10},
     {name: "banana", calories: 33},
     {name: "birne", calories: 3},
 ]
 
-fruits.forEach(fruit => console.log(fruit.name))
+// sorting objects number
+// fruits.sort((a, b) => b.calories - a.calories)
+// console.log(fruits)
 
-const fruitNames = fruits.map(fruit => fruit.name)
-fruitNames.forEach(name => console.log(name))
-
-const newFruits = fruits.filter(fruit => fruit.calories < 20)
-newFruits.forEach(fruit => console.log(fruit.name))
-
-console.log("-----------")
-fruits.forEach(fruit => console.log(fruit.name))
-
-const lowestCalFruit = fruits.reduce( (maxi, fruit) => {
-    return fruit.calories < maxi.calories ? fruit : maxi;
-}
-)
-
-console.log(lowestCalFruit)
+// sorting objects by alphabet
+fruits.sort((a,b) => a.name.localeCompare(b.name))
+console.log(fruits)
