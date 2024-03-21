@@ -1,23 +1,20 @@
-// closure -> allow for private variables and state maintenance
+function updateClock() {
+    const countdown = new Date("May 2, 2024 00:00:00")
+    const now = new Date();
 
-function createCounter() {
-    let counter = 0
+    const delta = countdown - now;
+    const days = Math.floor(delta / 1000 / 60 / 60 / 24);
+    const hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((delta % (1000 * 60 * 60 )) / (1000 * 60 ));
+    const seconds = Math.floor((delta % (1000 * 60 )) / (1000)).toString().padStart(2, 0);
 
-    function increase() {
-        counter++
-    }
-    
-    function getCounter() {
-        return counter;
-    }
-    
-    return {increase, getCounter}
+    // const hours = now.getHours().toString().padStart(2, 0);
+    // const minutes = now.getMinutes().toString().padStart(2, 0);
+    // const seconds = now.getSeconds().toString().padStart(2, 0);
+    const timeString = `${days} Tage ${hours} Std ${minutes} Min ${seconds} Sek`;
+
+    document.getElementById("clock").textContent = timeString;
 }
 
-const counts = createCounter();
-
-counts.increase()
-counts.increase()
-counts.increase()
-
-console.log(counts.getCounter())
+updateClock();
+setInterval(updateClock, 1000)

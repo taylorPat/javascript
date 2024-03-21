@@ -1,46 +1,27 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: aliceblue;
+    margin: 0;
+    background-image: url(pics/kreta.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-#cont {
-    background-color: hsl(208, 75%, 69%);
-    text-align: center;
-    max-width: 300px;
-    margin: auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px rgba(29, 38, 151, 0.55);
+#clock-container {
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid; */
+    height: 100vh;
+    align-items: center;
 }
 
-#tempInput {
-    width: 50%;
-    text-align: center;
-    font-size: 2em;
-    border: 2px solid;
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
-
-label {
-    font-size: 1.5em;
+#clock {
+    font-family: monospace;
+    font-size: 6rem;
     font-weight: bold;
-}
-
-button {
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 5px;
-    background-color: white;
-    border-color: rgb(223, 37, 37);
-    border-width: 5px;
-}
-
-button:hover {
-    background-color: blueviolet;
-}
-
-#result {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: large;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    backdrop-filter: blur(5px);
+    background-color: hsla(0, 0%, 30%, 0.25);
+    width: 100%;
 }
