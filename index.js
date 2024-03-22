@@ -1,20 +1,42 @@
-function updateClock() {
-    const countdown = new Date("May 2, 2024 00:00:00")
-    const now = new Date();
+const stopTime = document.getElementById("time");
+let startTime = 0;
+let elapsedTime = 0;
+let isRunning = false;
 
-    const delta = countdown - now;
-    const days = Math.floor(delta / 1000 / 60 / 60 / 24);
-    const hours = Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((delta % (1000 * 60 * 60 )) / (1000 * 60 ));
-    const seconds = Math.floor((delta % (1000 * 60 )) / (1000)).toString().padStart(2, 0);
-
-    // const hours = now.getHours().toString().padStart(2, 0);
-    // const minutes = now.getMinutes().toString().padStart(2, 0);
-    // const seconds = now.getSeconds().toString().padStart(2, 0);
-    const timeString = `${days} Tage ${hours} Std ${minutes} Min ${seconds} Sek`;
-
-    document.getElementById("clock").textContent = timeString;
+function startWatch() {
+    if (!isRunning){
+        console.log("Press start button");
+        startTime = Date.now() - elapsedTime;
+        timer = setInterval(updateTimer, 10);
+        console.log(startTime);
+        isRunning = true;
+    }
 }
 
-updateClock();
-setInterval(updateClock, 1000)
+function stopWatch() {
+    if (isRunning) {
+        clearInterval(timer);
+        elapsedTime = Date.now() - startTime;
+        console.log(elapsedTime)
+        isRunning = false;
+    }
+}
+
+function resetWatch() {
+    if (!isRunning) {
+        stopTime.textContent = "00:00:00:00";
+        startTime = 0;
+        elapsedTime = 0;
+    }
+}
+
+
+function updateTimer() {
+    const currentTime = Date.now();
+    const elapsedTime = currentTime - startTime;
+    const hours = Math.floor((elapsedTime % (1000*60*60*24)) / (1000*60*60)).toString().padStart(2, 0);
+    const min = Math.floor((elapsedTime % (1000*60*60)) / (1000*60)).toString().padStart(2, 0);
+    const sek = Math.floor((elapsedTime % (1000*60)) / (1000)).toString().padStart(2, 0);
+    const miliSek = Math.floor(elapsedTime % 100).toString().padStart(2, 0);
+    stopTime.textContent = `${hours}:${min}:${sek}:${miliSek}`
+}

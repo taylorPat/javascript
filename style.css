@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     background-image: url(pics/kreta.jpg);
     background-position: center;
@@ -10,7 +10,7 @@ body {
 #clock-container {
     display: flex;
     justify-content: center;
-    /* border: 2px solid; */
+    border: 2px solid; 
     height: 100vh;
     align-items: center;
 }
@@ -24,4 +24,60 @@ body {
     backdrop-filter: blur(5px);
     background-color: hsla(0, 0%, 30%, 0.25);
     width: 100%;
+} */
+#stop-watch-container {
+    font-family: monospace;
+    border: 5px solid;
+    border-radius: 3rem;
+    text-align: center;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.884);
+    color: rgba(0, 0, 255, 0.61);
+    padding: 10px;
+}
+
+body {
+    background-color: rgba(128, 128, 128, 0.3);
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial;
+    font-size: 3rem;
+}
+
+button {
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    color: white;
+    border: 0.25rem solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+
+
+#start-btn {
+    background-color: hsla(120, 56%, 50%, 0.7);
+}
+
+#start-btn:hover {
+    background-color: #04AA6D;
+}
+
+#stop-btn {
+    background-color: hsla(0, 56%, 50%, 0.7);
+}
+
+#stop-btn:hover {
+    background-color: hsla(0, 56%, 50%, 0.9);
+}
+
+#reset-btn {
+    background-color: hsla(209, 65%, 56%, 0.7);
+}
+
+#reset-btn:hover {
+    background-color: hsla(209, 65%, 56%, 0.9);
 }
