@@ -7,6 +7,29 @@
     <link rel="stylesheet", href="style.css"/>
 </head>
 <body>
+    <div id="calc-ctn">
+        <input id="display" readonly>
+        <div id="keys">
+            <button id="add-btn" onclick="appendtoDisplay('+')" class="operator-btn">+</button>
+            <button id="add-btn" onclick="appendtoDisplay('7')">7</button>
+            <button id="add-btn" onclick="appendtoDisplay('8')">8</button>
+            <button id="add-btn" onclick="appendtoDisplay('9')">9</button>
+            <button id="add-btn" onclick="appendtoDisplay('-')" class="operator-btn">-</button>
+            <button id="add-btn" onclick="appendtoDisplay('4')">4</button>
+            <button id="add-btn" onclick="appendtoDisplay('5')">5</button>
+            <button id="add-btn" onclick="appendtoDisplay('6')">6</button>
+            <button id="add-btn" onclick="appendtoDisplay('*')" class="operator-btn">*</button>
+            <button id="add-btn" onclick="appendtoDisplay('1')">1</button>
+            <button id="add-btn" onclick="appendtoDisplay('2')">2</button>
+            <button id="add-btn" onclick="appendtoDisplay('3')">3</button>
+            <button id="add-btn" onclick="appendtoDisplay('/')" class="operator-btn">/</button>
+            <button id="add-btn" onclick="appendtoDisplay('0')">0</button>
+            <button id="add-btn" onclick="appendtoDisplay('.')">.</button>
+            <button id="add-btn" onclick="calculate()">=</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="clearLast()">del</button>
+        </div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

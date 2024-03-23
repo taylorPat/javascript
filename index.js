@@ -1,19 +1,33 @@
-try {
-    const dividend = Number(window.prompt("Enter number!"));
-    const divisor = Number(window.prompt("Enter number!"));
+const display = document.getElementById("display");
 
-    if (divisor === 0) {
-        throw Error(`Divisor must not be zero`);
+function appendtoDisplay(symbol) {
+    console.log("input: ", display.value.at(-1))
+    if (display.value === "" && symbol === ".") {
+        console.log("not possible")
     }
-    if (isNaN(dividend) || isNaN(divisor)) {
-        throw Error(`${dividend}/${divisor} is not allowed!`)
+    else if (display.value.at(-1) === "." && symbol === ".") {
+        console.log("also not possible")
     }
-    const result = dividend / divisor;
-    console.log(result);
+    else {
+        display.value += symbol;
+    }
+    console.log(display.value)
 }
-catch(error) {
-    console.log(error);
+
+function calculate() {
+    let formula = display.value;
+    try {
+        display.value = eval(formula);
+    }
+    catch(error){
+        display.value = "ERROR"
+    }
 }
-finally {
-    console.log("The end has come!")
+
+function clearDisplay(){
+    display.value = "";
+}
+
+function clearLast() {
+    display.value = display.value.substring(0, display.value.length-1)
 }
