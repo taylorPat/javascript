@@ -1,42 +1,19 @@
-const stopTime = document.getElementById("time");
-let startTime = 0;
-let elapsedTime = 0;
-let isRunning = false;
+try {
+    const dividend = Number(window.prompt("Enter number!"));
+    const divisor = Number(window.prompt("Enter number!"));
 
-function startWatch() {
-    if (!isRunning){
-        console.log("Press start button");
-        startTime = Date.now() - elapsedTime;
-        timer = setInterval(updateTimer, 10);
-        console.log(startTime);
-        isRunning = true;
+    if (divisor === 0) {
+        throw Error(`Divisor must not be zero`);
     }
-}
-
-function stopWatch() {
-    if (isRunning) {
-        clearInterval(timer);
-        elapsedTime = Date.now() - startTime;
-        console.log(elapsedTime)
-        isRunning = false;
+    if (isNaN(dividend) || isNaN(divisor)) {
+        throw Error(`${dividend}/${divisor} is not allowed!`)
     }
+    const result = dividend / divisor;
+    console.log(result);
 }
-
-function resetWatch() {
-    if (!isRunning) {
-        stopTime.textContent = "00:00:00:00";
-        startTime = 0;
-        elapsedTime = 0;
-    }
+catch(error) {
+    console.log(error);
 }
-
-
-function updateTimer() {
-    const currentTime = Date.now();
-    const elapsedTime = currentTime - startTime;
-    const hours = Math.floor((elapsedTime % (1000*60*60*24)) / (1000*60*60)).toString().padStart(2, 0);
-    const min = Math.floor((elapsedTime % (1000*60*60)) / (1000*60)).toString().padStart(2, 0);
-    const sek = Math.floor((elapsedTime % (1000*60)) / (1000)).toString().padStart(2, 0);
-    const miliSek = Math.floor(elapsedTime % 100).toString().padStart(2, 0);
-    stopTime.textContent = `${hours}:${min}:${sek}:${miliSek}`
+finally {
+    console.log("The end has come!")
 }
