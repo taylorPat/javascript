@@ -1,7 +1,10 @@
-// DOM = Document Object Model
-// It is a object that represent the web page you see in the browser.
-// And provides you with an API to interact with it.
-// Web browser create the DOM when it loads an html document and 
-// structures all the elements in a tree like representation.
-// Javascript can access the DOM to dynamically change the content,
-// structure and style of a web page.
+// element selectors = Methods used to target and manipulate HTML elements.
+// They allow you to select one or multiple HTML elements from the DOM.
+
+// document.getElementbyId() -> Element or Null
+// document.getElementsClassName() -> HTML Collection (
+//    like an HTML element with less functionality. E.g. if you want to use
+//    the forEach methode you first have to Array.from(...).forEach())
+// document.getElementsByTagName() -> HTML Collection
+// document.querySelector() -> First Element or Null -> (".className"), ("h1")
+// document.querySelectorAll() -> Nodelist -> ("li") -> forEach()
